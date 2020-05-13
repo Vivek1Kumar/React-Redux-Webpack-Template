@@ -8,7 +8,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        publicPath: ''
+        publicPath: '',
     },
     resolve: {
         extensions: ['.js', '.jsx']
@@ -56,6 +56,10 @@ module.exports = {
             }
         ]
     },
+    devServer: {
+        contentBase: path.join(__dirname, 'public'),
+        historyApiFallback: true
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: __dirname + '/public/index.html',
@@ -63,4 +67,5 @@ module.exports = {
             inject: 'body'
         })
     ]
+    
 }
